@@ -1,0 +1,18 @@
+DOMAIN ModCode IS String;
+DOMAIN MTitle IS String;
+DOMAIN MSem IS Int;
+DOMAIN MCredit IS Int;
+
+TYPE mc AS ModCode;
+TYPE mt AS MTitle;
+TYPE ms AS MSem;
+TYPE cr AS MCredit;
+
+RELATION module WITH mc, mt, ms, cr;
+
+FD ON module WHERE mc,mt->cr;
+
+LOAD "./module1.csv" INTO module;
+
+SELECT module WHERE ms=cr;
+

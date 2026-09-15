@@ -1,0 +1,24 @@
+DOMAIN ModCode IS String;
+DOMAIN MTitle IS String;
+DOMAIN MSem IS Int;
+DOMAIN MCredit IS Int;
+DOMAIN Lecturer IS String;
+DOMAIN Adviser IS String;
+
+TYPE mc AS ModCode;
+TYPE mt AS MTitle;
+TYPE ms AS MSem;
+TYPE cr AS MCredit;
+TYPE ad AS Adviser;
+TYPE lc AS Lecturer;
+
+RELATION module WITH mc, mt, ms, cr, ad;
+RELATION module1 WITH mc, mt, ms, cr, lc;
+
+LOAD "./module2.csv" INTO module;
+LOAD "./module1.csv" INTO module1;
+
+LET j BE JOIN module AND module1;
+LET a BE SELECT j WHERE cr=15;
+JOIN a AND j;
+

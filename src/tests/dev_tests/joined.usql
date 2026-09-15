@@ -1,0 +1,18 @@
+DOMAIN Surname IS String;
+DOMAIN MTitle IS String;
+DOMAIN ID IS Int;
+DOMAIN Name IS String;
+
+TYPE nm AS Name;
+TYPE id AS ID;
+TYPE sr AS Surname;
+
+RELATION module WITH nm, id;
+RELATION module1 WITH sr, id;
+
+LOAD "./test1.csv" INTO module;
+LOAD "./test2.csv" INTO module1;
+
+LET b1 BE UNION module AND module;
+LET b2 BE PROJECT b1 ON id;
+SELECT b2 WHERE id=1;

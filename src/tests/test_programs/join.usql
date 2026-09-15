@@ -1,0 +1,17 @@
+DOMAIN ModCode IS String;
+DOMAIN MTitle IS String;
+DOMAIN MSem IS Int;
+DOMAIN MCredit IS Int;
+
+TYPE mc AS ModCode;
+TYPE mt AS MTitle;
+TYPE ms AS MSem;
+TYPE cr AS MCredit;
+
+RELATION module WITH mc, mt, ms, cr;
+RELATION module1 WITH mt, ms, cr, mc;
+
+LOAD "./tests/test_files/module.csv" INTO module;
+LOAD "./tests/test_files/module1.csv" INTO module1;
+
+JOIN module AND module1;

@@ -1,0 +1,23 @@
+DOMAIN ModCode IS String;
+DOMAIN MTitle IS String;
+DOMAIN MSem IS Int;
+DOMAIN MCredit IS Int;
+
+TYPE mc AS ModCode;
+TYPE mt AS MTitle;
+TYPE ms AS MSem;
+TYPE cr AS MCredit;
+
+TYPE mc1 AS ModCode;
+TYPE mt1 AS MTitle;
+TYPE ms1 AS MSem;
+TYPE cr1 AS MCredit;
+
+RELATION module WITH mc, mt, ms, cr;
+RELATION module1 WITH mt1, ms1, cr1, mc1;
+
+LOAD "./src/tests/test_files/module.csv" INTO module;
+LOAD "./src/tests/test_files/module1.csv" INTO module1;
+
+LET x BE RENAME module ON mc, mt1, ms, cr1;
+SELECT x WHERE mt1=cr1;
