@@ -30,3 +30,6 @@ Once the tests are detected, click on run to run them all.
 
 To run manual tests, run the following command for each file in `src/tests/manual_tests/`  
 `sh run.sh --o src/tests/manual_tests/<usql file>`
+
+## Approval
+The upload of this project has been approved by Mr Adam Barwell.
